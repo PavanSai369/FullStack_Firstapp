@@ -14,7 +14,7 @@ export default function AddProduct() {
         const newProduct = {
             name, price, description, category, stock: Number(stock), role
         }
-        axios.post("https://fullstack-firstapp.onrender.com /api/product/add", newProduct)
+        axios.post("https://fullstack-firstapp.onrender.com/api/product/add", newProduct)
             .then((res) => {
                 console.log(res)
                 if (res.status == 200) {

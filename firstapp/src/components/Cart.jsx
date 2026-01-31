@@ -16,7 +16,7 @@ export default function Cart() {
             alert("Login first to view your cart")
             return
         }
-        axios.get("https://fullstack-firstapp.onrender.com /api/cart", { params: { userId } })
+        axios.get("https://fullstack-firstapp.onrender.com/api/cart", { params: { userId } })
             .then(res => {
                 if (res.status === 200) {
                     setCart(res.data)
@@ -31,7 +31,7 @@ export default function Cart() {
 
     // Remove item from cart
     async function deleteItem(productId) {
-        axios.delete(`https://fullstack-firstapp.onrender.com /api/cart/remove/${productId}`, {
+        axios.delete(`https://fullstack-firstapp.onrender.com/api/cart/remove/${productId}`, {
             params: { userId }
         })
             .then(res => {
@@ -47,7 +47,7 @@ export default function Cart() {
 
     // Checkout (deduct stock and clear cart)
     async function checkout() {
-        axios.post("https://fullstack-firstapp.onrender.com /api/cart/checkout", {}, { params: { userId } })
+        axios.post("https://fullstack-firstapp.onrender.com/api/cart/checkout", {}, { params: { userId } })
             .then(res => {
                 if (res.status === 200) {
                     alert(res.data.message)

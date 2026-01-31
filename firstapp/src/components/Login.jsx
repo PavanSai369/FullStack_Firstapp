@@ -14,7 +14,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "https://fullstack-firstapp.onrender.com /api/login",
+        "https://fullstack-firstapp.onrender.com/api/login",
         newUser
       )
 

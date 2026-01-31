@@ -15,7 +15,7 @@ export default function Home() {
   }, [])
 
   async function fetchProducts() {
-    axios.get("https://fullstack-firstapp.onrender.com /api/product")
+    axios.get("https://fullstack-firstapp.onrender.com/api/product")
       .then((res) => {
         if (res.status === 200) {
           setProducts(res.data)
@@ -44,7 +44,7 @@ export default function Home() {
       return
     }
 
-    axios.post("https://fullstack-firstapp.onrender.com /api/cart/add",
+    axios.post("https://fullstack-firstapp.onrender.com/api/cart/add",
       { productId, quantity },
       { params: { userId } }
     )
@@ -72,7 +72,7 @@ export default function Home() {
   }
 
   function deleteProduct(productId) {
-    axios.delete(`https://fullstack-firstapp.onrender.com /api/product/${productId}`)
+    axios.delete(`https://fullstack-firstapp.onrender.com/api/product/${productId}`)
       .then(res => {
         if (res.status === 200) {
           Swal.fire("Deleted!", "Product removed successfully", "success")
