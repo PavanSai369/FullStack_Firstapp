@@ -1,0 +1,373 @@
+/* 
+  Responsive Add Product CSS
+  Mobile-first approach with responsive typography and layout
+  Fully responsive from 320px to 2560px
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --product-container-padding-mobile: 1rem;
+  --product-container-padding-tablet: 1.5rem;
+  --product-container-padding-desktop: 2rem;
+  --product-form-max-width: 100%;
+  --product-form-max-width-tablet: 95%;
+  --product-form-max-width-desktop: 500px;
+  --product-gap: 1.25rem;
+}
+
+/* 
+  Add Product Container - Main wrapper
+  Fullscreen with gradient background
+  Responsive padding for different screen sizes
+*/
+.add-product-container {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--product-container-padding-mobile);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 
+  Product Form Wrapper - Form container
+  Centered with responsive max-width
+*/
+.product-form-wrapper {
+  width: 100%;
+  max-width: var(--product-form-max-width-desktop);
+  background: white;
+  border-radius: 0.75rem;
+  padding: clamp(1.25rem, 5vw, 2rem);
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+/* 
+  Add Product Title - Responsive heading
+  Uses fluid typography for automatic scaling
+*/
+.add-product-container h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  margin: 0 0 1.25rem 0;
+  color: #333;
+  text-align: center;
+}
+
+/* 
+  Product Form - Form element styling
+  Grid layout for organized form structure
+*/
+.product-form-wrapper form {
+  display: grid;
+  gap: var(--product-gap);
+}
+
+/* 
+  Form Group - Individual form field container
+  Flexbox for vertical layout
+*/
+.product-form-wrapper .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* 
+  Form Labels - Responsive label styling
+  Touch-friendly sizing with mobile optimization
+*/
+.product-form-wrapper .form-group label {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+/* 
+  Input & Textarea Fields - Responsive form controls
+  Mobile-optimized font size (16px prevents zoom on iOS)
+  Full-width on all devices
+*/
+.product-form-wrapper input,
+.product-form-wrapper textarea {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  border: 1.5px solid #dee2e6;
+  border-radius: 0.5rem;
+  font-size: 16px; /* Prevents iOS auto-zoom */
+  font-family: inherit;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Focus state for better accessibility */
+.product-form-wrapper input:focus,
+.product-form-wrapper textarea:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+/* Textarea specific styling */
+.product-form-wrapper textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+/* 
+  Submit Button - Full-width on mobile, auto on desktop
+  Responsive padding and typography
+  Touch-friendly sizing (minimum 44px height)
+*/
+.product-form-wrapper button[type="submit"] {
+  width: 100%;
+  padding: clamp(0.75rem, 2vw, 0.875rem) clamp(1rem, 2vw, 1.5rem);
+  margin-top: 0.5rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Button hover state with transform */
+.product-form-wrapper button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1.5rem rgba(102, 126, 234, 0.4);
+}
+
+/* Button active state */
+.product-form-wrapper button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Button disabled state */
+.product-form-wrapper button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 
+  Media Query - Small Devices (320px - 575px)
+  Optimize for very small screens
+*/
+@media (max-width: 575px) {
+  .product-form-wrapper {
+    max-width: 100%;
+    padding: 1.25rem 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .product-form-wrapper .form-group label {
+    font-size: 0.875rem;
+  }
+
+  .product-form-wrapper input,
+  .product-form-wrapper textarea {
+    font-size: 16px;
+    padding: 0.625rem 0.75rem;
+  }
+
+  .product-form-wrapper button[type="submit"] {
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .add-product-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* 
+  Media Query - Tablet (576px - 991px)
+  Increase spacing and padding
+*/
+@media (min-width: 576px) {
+  .add-product-container {
+    padding: var(--product-container-padding-tablet);
+  }
+
+  .product-form-wrapper {
+    max-width: 450px;
+    padding: clamp(1.5rem, 4vw, 2rem);
+  }
+}
+
+/* 
+  Media Query - Desktop (992px+)
+  Optimal spacing for comfortable viewing
+*/
+@media (min-width: 992px) {
+  .add-product-container {
+    padding: var(--product-container-padding-desktop);
+    min-height: 100vh;
+  }
+
+  .product-form-wrapper {
+    max-width: 500px;
+    padding: 2rem;
+  }
+
+  .product-form-wrapper .form-group label {
+    font-size: 1rem;
+  }
+
+  .product-form-wrapper input,
+  .product-form-wrapper textarea {
+    padding: 0.75rem 0.875rem;
+  }
+}
+
+/* 
+  Media Query - Large Desktop (1200px+)
+  Maximum comfortable spacing
+*/
+@media (min-width: 1200px) {
+  .add-product-container {
+    padding: 3rem 2rem;
+  }
+
+  .product-form-wrapper {
+    max-width: 550px;
+    padding: 2.5rem;
+  }
+}
+
+/* 
+  Media Query - Extra Small Devices (320px - 374px)
+  Optimization for very small screens
+*/
+@media (max-width: 374px) {
+  .add-product-container {
+    padding: 1rem 0.75rem;
+  }
+
+  .product-form-wrapper {
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+  }
+
+  .add-product-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-form-wrapper .form-group label {
+    font-size: 0.8125rem;
+  }
+
+  .product-form-wrapper input,
+  .product-form-wrapper textarea {
+    padding: 0.625rem 0.75rem;
+  }
+
+  .product-form-wrapper button[type="submit"] {
+    font-size: 0.8125rem;
+  }
+}
+
+/* 
+  Accessibility - High Contrast Mode
+  Enhanced borders and text for better visibility
+*/
+@media (prefers-contrast: more) {
+  .product-form-wrapper input,
+  .product-form-wrapper textarea {
+    border-width: 2px;
+  }
+
+  .product-form-wrapper .form-group label {
+    font-weight: 700;
+  }
+}
+
+/* 
+  Accessibility - Reduced Motion
+  Disables animations for users who prefer reduced motion
+*/
+@media (prefers-reduced-motion: reduce) {
+  .product-form-wrapper input,
+  .product-form-wrapper textarea,
+  .product-form-wrapper button[type="submit"] {
+    transition: none;
+  }
+
+  .product-form-wrapper button[type="submit"]:hover {
+    transform: none;
+  }
+}
+
+/* 
+  Dark Mode Support
+  Adapts colors for dark mode preference
+*/
+@media (prefers-color-scheme: dark) {
+  .product-form-wrapper {
+    background: #1e1e1e;
+    color: #f0f0f0;
+  }
+
+  .product-form-wrapper .form-group label {
+    color: #d0d0d0;
+  }
+
+  .product-form-wrapper input,
+  .product-form-wrapper textarea {
+    background: #2d2d2d;
+    color: #f0f0f0;
+    border-color: #444;
+  }
+
+  .product-form-wrapper input:focus,
+  .product-form-wrapper textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  }
+
+  .add-product-container h2 {
+    color: #f0f0f0;
+  }
+}
+
+/* 
+  Print Styles
+  Optimizes layout for printing
+*/
+@media print {
+  .add-product-container {
+    background: white;
+    min-height: auto;
+    padding: 0;
+  }
+
+  .product-form-wrapper {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .product-form-wrapper button[type="submit"] {
+    display: none;
+  }
+}

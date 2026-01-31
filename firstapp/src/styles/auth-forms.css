@@ -1,0 +1,410 @@
+/* 
+  Modern Professional Authentication Forms CSS
+  Premium gradient backgrounds, smooth animations, and elegant design
+  Fully responsive from 320px to 2560px
+*/
+
+/* Root variables for easy customization */
+:root {
+  --form-max-width: 28rem; /* ~450px */
+  --form-padding-mobile: 1.5rem;
+  --form-padding-tablet: 2rem;
+  --form-padding-desktop: 2.5rem;
+  --form-gap: 1.25rem;
+  --border-radius: 0.75rem;
+  --border-radius-lg: 1rem;
+  --transition-duration: 0.3s;
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+  --primary-color: #667eea;
+  --primary-dark: #764ba2;
+  --secondary-color: #f093fb;
+  --accent-color: #4ee4fd;
+}
+
+/* 
+  Auth Container - Premium background with image
+  Modern office/tech background with gradient overlay
+*/
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  padding: 2rem 1rem;
+  background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay for better text readability */
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(118, 75, 162, 0.75) 50%, rgba(240, 147, 251, 0.6) 100%);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+/* Decorative elements background (removed - using image now) */
+
+/* 
+  Auth Wrapper - Container for form
+  Positioned relative to overlay decorative elements
+*/
+.auth-wrapper {
+  width: 100%;
+  max-width: var(--form-max-width);
+  display: flex;
+  flex-direction: column;
+  gap: var(--form-gap);
+  position: relative;
+  z-index: 1;
+}
+
+/* 
+  Auth Form - Premium card design
+  Modern glass-morphism effect with gradient border
+*/
+.auth-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-lg);
+  padding: var(--form-padding-mobile);
+  box-shadow: var(--shadow-xl);
+  display: grid;
+  gap: 1.5rem;
+  transition: all var(--transition-duration) ease;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Form hover effect - subtle lift and enhanced shadow */
+.auth-form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1.5rem 3.5rem rgba(102, 126, 234, 0.3);
+}
+
+/* Gradient accent line at top of form */
+.auth-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+}
+
+/* 
+  Auth Form Title - Elegant heading
+  Gradient text with proper hierarchy
+*/
+.auth-form-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+/* Subtitle or helper text below title */
+.auth-form-subtitle {
+  font-size: clamp(0.875rem, 2vw, 0.95rem);
+  text-align: center;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* 
+  Form Group - Individual field container
+  Enhanced spacing and visual hierarchy
+*/
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 100%;
+}
+
+/* Form grid for multi-column layouts */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .form-group:nth-child(1),
+  .form-group:nth-child(2),
+  .form-group:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* 
+  Form Label - Professional styling
+  Clear hierarchy with proper contrast
+*/
+.form-label {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 0.375rem;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+/* 
+  Form Control - Enhanced input styling
+  Modern borders with smooth transitions and focus states
+*/
+.form-control {
+  font-size: 16px; /* Prevents iOS zoom */
+  padding: 0.875rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 0.625rem;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: inherit;
+  transition: all var(--transition-duration) ease;
+  outline: none;
+}
+
+/* Focus state - attractive gradient border */
+.form-control:focus {
+  border-color: var(--primary-color);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: scale(1.01);
+}
+
+/* Hover state */
+.form-control:hover {
+  border-color: #bbb;
+}
+
+/* Error state */
+.form-control:invalid {
+  border-color: #e74c3c;
+}
+
+/* Placeholder styling */
+.form-control::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+/* Mobile-optimized font size for inputs */
+@media (max-width: 576px) {
+  .form-control {
+    font-size: 16px; /* Prevents zoom on iOS Safari when focused */
+  }
+}
+
+/* 
+  Submit Button - Premium gradient design
+  Full width on mobile with smooth hover effects
+*/
+.btn-submit {
+  width: 100%;
+  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.625rem;
+  font-weight: 600;
+  transition: all var(--transition-duration) ease;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  box-shadow: 0 0.5rem 1.5rem rgba(102, 126, 234, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button shine effect */
+.btn-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-submit:hover::before {
+  left: 100%;
+}
+
+/* Hover state - lift and glow effect */
+.btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.75rem 2rem rgba(102, 126, 234, 0.4);
+}
+
+/* Active state - pressed effect */
+.btn-submit:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.25rem 1rem rgba(102, 126, 234, 0.3);
+}
+
+/* Focus state - accessible outline */
+.btn-submit:focus {
+  outline: 2px solid rgba(102, 126, 234, 0.5);
+  outline-offset: 2px;
+}
+
+/* Button primary variant */
+.btn.btn-primary.btn-submit {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+}
+
+/* Button outline variant */
+.btn.btn-outline-primary.btn-submit {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  box-shadow: none;
+}
+
+.btn.btn-outline-primary.btn-submit:hover {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 0.5rem 1.5rem rgba(102, 126, 234, 0.3);
+}
+
+/* Button success variant */
+.btn.btn-success.btn-submit,
+.btn.btn-outline-success.btn-submit {
+  background: linear-gradient(135deg, #27ae60, #229954);
+  color: white;
+}
+
+/* 
+  Tablet Adjustments (768px - 1024px)
+  Increase padding and spacing for better touch targets
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .auth-form {
+    padding: var(--form-padding-tablet);
+  }
+  
+  .form-group {
+    gap: 0.625rem;
+  }
+}
+
+/* 
+  Desktop Adjustments (1025px+)
+  Maximum padding and spacing for comfortable viewing
+*/
+@media (min-width: 1025px) {
+  .auth-form {
+    padding: var(--form-padding-desktop);
+  }
+  
+  .auth-container {
+    min-height: 100vh;
+  }
+}
+
+/* 
+  Mobile Optimization (max-width: 767px)
+  Reduce background attachment for better mobile performance
+*/
+@media (max-width: 767px) {
+  .auth-container {
+    background-attachment: scroll;
+  }
+}
+
+/* 
+  Extra Small Devices (320px - 374px)
+  Further optimization for very small screens
+*/
+@media (max-width: 374px) {
+  .auth-form {
+    padding: 1rem;
+  }
+  
+  .auth-form-title {
+    font-size: 1.25rem;
+  }
+  
+  .form-label {
+    font-size: 0.8125rem;
+  }
+}
+
+/* 
+  Print Styles - Optimize for printing
+*/
+@media print {
+  .auth-container {
+    background: white;
+    min-height: auto;
+  }
+  
+  .auth-form {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-submit {
+    display: none;
+  }
+}
+
+/* Accessibility - High Contrast Mode */
+@media (prefers-contrast: more) {
+  .form-control {
+    border-width: 2px;
+  }
+  
+  .form-label {
+    font-weight: 700;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .auth-form,
+  .form-control,
+  .btn-submit {
+    transition: none;
+  }
+  
+  .btn-submit:hover {
+    transform: none;
+  }
+}

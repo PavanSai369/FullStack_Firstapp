@@ -1,0 +1,399 @@
+/* 
+  Responsive Home Page CSS
+  Uses CSS Grid, Flexbox, and fluid typography for all devices
+  Fully responsive from 320px (mobile) to 2560px (ultra-wide)
+*/
+
+:root {
+  --home-padding-mobile: 2rem 1rem;
+  --home-padding-tablet: 3rem 2rem;
+  --home-padding-desktop: 4rem 3rem;
+  --hero-gap-mobile: 1.5rem;
+  --hero-gap-desktop: 2rem;
+  --card-gap-mobile: 1rem;
+  --card-gap-desktop: 2rem;
+}
+
+/* 
+  Home Container - Main wrapper
+  Uses padding with rem units for responsive scaling
+  flex: 1 ensures consistent full viewport height
+*/
+.home-container {
+  flex: 1;
+  width: 100%;
+  padding: var(--home-padding-mobile);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+  Hero Section - Main content area
+  Flexbox column layout for vertical stacking
+  Responsive gap between elements
+*/
+.hero-section {
+  width: 100%;
+  max-width: 72rem; /* ~1152px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hero-gap-mobile);
+}
+
+/* 
+  Hero Content - Flexbox container for content stacking
+  Centers all content vertically and horizontally
+*/
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hero-gap-mobile);
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+/* 
+  Hero Title - Main heading with fluid typography
+  Uses clamp for automatic scaling: min 1.75rem, preferred 6vw, max 3.5rem
+  Ensures readability on all devices while scaling proportionally
+*/
+.hero-title {
+  font-size: clamp(1.75rem, 6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+  Hero Subtitle - Secondary heading
+  Uses clamp for fluid typography: min 1rem, preferred 3.5vw, max 1.5rem
+  Lighter weight for hierarchy
+*/
+.hero-subtitle {
+  font-size: clamp(1rem, 3.5vw, 1.5rem);
+  font-weight: 300;
+  margin: 0;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+/* 
+  Features Grid - CSS Grid for responsive card layout
+  Mobile: 1 column
+  Tablet: 2-3 columns
+  Desktop: 3 columns
+  Uses auto-fit for flexibility
+*/
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--card-gap-mobile);
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* 
+  Feature Card - Individual feature item
+  Uses flexbox for content alignment
+  Responsive padding with clamp
+*/
+.feature-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0.75rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Hover effect with transform */
+.feature-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
+}
+
+/* 
+  Feature Icon - Emoji/icon styling
+  Responsive font size scales with viewport
+*/
+.feature-icon {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, #667eea20, #764ba220);
+  border-radius: 50%;
+}
+
+/* 
+  Feature Title - Card heading
+  Responsive font with clamp
+*/
+.feature-title {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+/* 
+  Feature Text - Card description
+  Responsive font and line-height for readability
+*/
+.feature-text {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.6;
+  margin: 0;
+  color: #666;
+}
+
+/* 
+  CTA Buttons - Call-to-action button group
+  Flexbox with responsive direction and gap
+  Stacks vertically on mobile, horizontally on desktop
+*/
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* 
+  CTA Button Styling - Individual button
+  Responsive padding and font size
+  Full width on mobile, auto on desktop
+*/
+.btn-cta {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  padding: clamp(0.625rem, 1.5vh, 0.875rem) clamp(1.5rem, 3vw, 2rem);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Primary button hover state */
+.btn-primary.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1.5rem rgba(102, 126, 234, 0.4);
+}
+
+/* Outline button hover state */
+.btn-outline-primary.btn-cta:hover {
+  background-color: #667eea;
+  border-color: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 
+  Media Query - Tablet (768px)
+  Adjust spacing and grid for better tablet display
+*/
+@media (min-width: 768px) {
+  .home-container {
+    padding: var(--home-padding-tablet);
+  }
+  
+  .hero-content {
+    gap: var(--hero-gap-desktop);
+  }
+  
+  .features-grid {
+    gap: var(--card-gap-desktop);
+  }
+  
+  .cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+  }
+  
+  .btn-cta {
+    width: auto;
+    flex: 0 1 auto;
+  }
+}
+
+/* 
+  Media Query - Desktop (1024px)
+  Maximum spacing and optimal layout
+*/
+@media (min-width: 1024px) {
+  .home-container {
+    padding: var(--home-padding-desktop);
+    min-height: 100vh;
+  }
+  
+  .hero-section {
+    gap: 3rem;
+  }
+  
+  .feature-card {
+    padding: clamp(2rem, 4vw, 2.5rem);
+  }
+}
+
+/* 
+  Media Query - Large Desktop (1400px+)
+  Enhanced spacing for ultra-wide displays
+*/
+@media (min-width: 1400px) {
+  .home-container {
+    padding: 5rem 4rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* 
+  Media Query - Extra Small Devices (320px - 374px)
+  Optimization for very small screens
+*/
+@media (max-width: 374px) {
+  .home-container {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .feature-card {
+    padding: 1rem;
+  }
+  
+  .feature-text {
+    font-size: 0.8125rem;
+  }
+}
+
+/* 
+  Accessibility - High Contrast Mode
+  Enhanced colors and borders for better visibility
+*/
+@media (prefers-contrast: more) {
+  .feature-card {
+    border: 2px solid #333;
+  }
+  
+  .hero-title,
+  .feature-title {
+    font-weight: 900;
+  }
+}
+
+/* 
+  Accessibility - Reduced Motion
+  Disables animations for users who prefer reduced motion
+*/
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .btn-cta,
+  .btn-primary,
+  .btn-outline-primary {
+    transition: none;
+  }
+  
+  .feature-card:hover,
+  .btn-cta:hover {
+    transform: none;
+  }
+}
+
+/* 
+  Dark Mode Support
+  Adapts colors for dark mode preference
+*/
+@media (prefers-color-scheme: dark) {
+  .feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0f0f0;
+  }
+  
+  .feature-title {
+    color: #f0f0f0;
+  }
+  
+  .feature-text {
+    color: #d0d0d0;
+  }
+}
+
+/* 
+  Print Styles
+  Optimizes layout for printing
+*/
+@media print {
+  .home-container {
+    background: white;
+    min-height: auto;
+  }
+  
+  .cta-buttons {
+    display: none;
+  }
+  
+  .feature-card {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* 
+  Responsive Images (if added in future)
+  Ensures images scale properly
+*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 
+  Responsive Video Support (if added in future)
+  Maintains aspect ratio for embedded videos
+*/
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

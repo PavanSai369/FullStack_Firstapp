@@ -1,0 +1,242 @@
+/* 
+  Responsive Navigation CSS
+  Optimized for mobile-first approach with media queries
+  Uses Flexbox for flexible layout across all devices
+*/
+
+:root {
+  --nav-padding-mobile: 0.5rem 1rem;
+  --nav-padding-desktop: 1rem 2rem;
+  --nav-font-size-mobile: 0.9rem;
+  --nav-font-size-desktop: 1rem;
+  --nav-gap: 0.5rem;
+}
+
+/* 
+  Navbar Responsive - Base styling with flexible padding
+  Uses sticky positioning to keep navbar accessible while scrolling
+*/
+.navbar-responsive {
+  padding: var(--nav-padding-mobile);
+  transition: all 0.3s ease;
+}
+
+/* 
+  Container Responsive - Maintains responsive width
+  Adds padding on mobile, removes on larger screens with max-width
+*/
+.container-responsive {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-responsive {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-responsive {
+    max-width: 1140px;
+  }
+}
+
+/* 
+  Brand Responsive - Scales with screen size
+  Uses fluid typography (clamp) for automatic scaling
+  min: 1rem, preferred: 4vw, max: 1.5rem
+*/
+.navbar-brand-responsive {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand-responsive:hover {
+  color: #fff;
+}
+
+/* 
+  Navigation Link Responsive - Touch-friendly spacing
+  Minimum 44px height for touch targets (accessibility standard)
+*/
+.nav-link-responsive {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  padding: 0.75rem 1rem !important; /* Touch target size */
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover effect with underline animation */
+.nav-link-responsive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  width: 0;
+  height: 2px;
+  background-color: #667eea;
+  transition: width 0.3s ease;
+}
+
+.nav-link-responsive:hover::after {
+  width: calc(100% - 2rem);
+}
+
+/* 
+  Navigation Items Container - Flexbox for responsive alignment
+  Items stack vertically on mobile, horizontally on desktop
+*/
+.nav-items-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nav-gap);
+  margin-top: 1rem;
+}
+
+/* 
+  Tablet and Desktop - Switch to horizontal layout
+  Breakpoint: 992px (Bootstrap lg breakpoint)
+*/
+@media (min-width: 992px) {
+  .navbar-responsive {
+    padding: var(--nav-padding-desktop);
+  }
+  
+  .nav-items-responsive {
+    flex-direction: row;
+    gap: 0.25rem;
+    margin-top: 0;
+  }
+}
+
+/* 
+  Navigation Collapse Responsive - Smooth transitions
+  Handles mobile menu collapse/expand animation
+*/
+.navbar-collapse-responsive {
+  transition: all 0.35s ease;
+}
+
+/* 
+  Mobile Menu Optimization
+  Better visual separation and spacing on mobile devices
+*/
+@media (max-width: 991px) {
+  .navbar-collapse-responsive {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
+    padding: 1rem 0;
+  }
+  
+  .nav-link-responsive {
+    padding: 0.625rem 1.5rem !important;
+  }
+}
+
+/* 
+  Toggler Button Responsive - Better touch target on mobile
+  Ensures adequate size for finger interaction
+*/
+.navbar-toggler {
+  padding: 0.625rem 0.75rem;
+  font-size: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* 
+  Small Devices (320px - 479px)
+  Further optimization for very small screens
+*/
+@media (max-width: 479px) {
+  .navbar-brand-responsive {
+    font-size: 1.1rem;
+  }
+  
+  .nav-link-responsive {
+    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem !important;
+  }
+}
+
+/* 
+  Large Desktop (1400px+)
+  Maximum spacing and typography
+*/
+@media (min-width: 1400px) {
+  .container-responsive {
+    max-width: 1320px;
+  }
+  
+  .navbar-responsive {
+    padding: 1rem 3rem;
+  }
+  
+  .nav-link-responsive {
+    font-size: 1.05rem;
+    padding: 0.75rem 1.25rem !important;
+  }
+}
+
+/* 
+  Sticky Navbar Responsive - Adjust positioning
+  Ensures navbar stays visible and accessible
+*/
+.sticky-top {
+  top: 0;
+  z-index: 1020;
+  position: sticky;
+}
+
+/* 
+  Accessibility - Reduced Motion Support
+  Disables animations for users who prefer reduced motion
+*/
+@media (prefers-reduced-motion: reduce) {
+  .navbar-brand-responsive,
+  .nav-link-responsive,
+  .navbar-toggle {
+    transition: none;
+  }
+  
+  .nav-link-responsive::after {
+    display: none;
+  }
+}
+
+/* 
+  Print Styles - Hide navigation when printing
+*/
+@media print {
+  .navbar-responsive {
+    display: none;
+  }
+}
+
+/* 
+  Dark Mode Support (Optional)
+  Adapts colors for dark mode preference
+*/
+@media (prefers-color-scheme: dark) {
+  .navbar-collapse-responsive {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+}

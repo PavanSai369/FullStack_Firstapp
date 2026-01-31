@@ -1,0 +1,97 @@
+/* Responsive Root Container */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  width: 100%;
+}
+
+/* Logo Responsive Styling */
+.logo {
+  height: clamp(4em, 15vw, 6em);
+  padding: clamp(1em, 3vw, 1.5em);
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Card Responsive Styling */
+.card {
+  padding: clamp(1.25rem, 3vw, 2em);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.read-the-docs {
+  color: #888;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+}
+
+/* Mobile Optimization (320px - 575px) */
+@media (max-width: 575px) {
+  #root {
+    padding: 1rem 0.75rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
+
+/* Tablet Optimization (576px - 991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+  #root {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  #root {
+    padding: 1.75rem;
+  }
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+  #root {
+    padding: 2rem;
+  }
+}
+
+/* Extra Large Devices (1400px+) */
+@media (min-width: 1400px) {
+  #root {
+    padding: 2.5rem;
+  }
+}
+
+/* Accessibility - Reduce Motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    transition: none;
+  }
+}
